@@ -22,6 +22,16 @@
     font-size: 14px;
   }
 
+  > .Bottom {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: -40px;
+    text-indent: 0;
+    text-align: center;
+    color: #999;
+  }
+
   > .User-Label {
     position: relative;
     float: left;
