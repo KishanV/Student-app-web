@@ -3,6 +3,7 @@ import './index.scss';
 import {hot} from 'react-hot-loader/root';
 import {connect} from "react-redux";
 import Login from "../login";
+import Dashboard from "../dashboard";
 
 interface State {
 
@@ -26,6 +27,7 @@ class App extends React.Component<Props, State> {
     render() {
         return <div className={'App'}>
             {this.props.isLoggedIn === false && <Login/>}
+            {this.props.isLoggedIn === true && <Dashboard/>}
         </div>;
     }
 }

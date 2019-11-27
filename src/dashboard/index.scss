@@ -1,0 +1,121 @@
+.App > .Dashboard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #eee;
+
+  > .Title {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+
+    > .SearchBar {
+      position: absolute;
+      width: auto;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: inline-flex;
+
+      > .Holder {
+        position: absolute;
+        width: auto;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: inline-flex;
+
+        > .Dropdown {
+          position: relative;
+          width: auto;
+          height: 40px;
+          background: #fff;
+          border: 1px solid #ddd;
+          box-sizing: border-box;
+          border-radius: 6px 0px 0px 6px;
+          border-right: 0px;
+          padding-left: 10px;
+          padding-right: 20px;
+          line-height: 38px;
+          cursor: pointer;
+          white-space: pre;
+
+          > .Icon {
+            position: absolute;
+            pointer-events: none;
+            top: 14px;
+            right: 6px;
+          }
+        }
+
+        > .Input {
+          position: relative;
+          width: 400px;
+          height: 40px;
+          background: #fff;
+          border: 1px solid #ddd;
+          box-sizing: border-box;
+          border-radius: 0px 6px 6px 0px;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  > .Holder {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 61px);
+    top: 61px;
+    background: #eee;
+    overflow: auto;
+
+    > .List {
+      width: 100%;
+      height: auto;
+      position: relative;
+      float: left;
+      box-sizing: border-box;
+      padding: 20px;
+
+      > .Card {
+        position: relative;
+        float: left;
+        width: 31.33%;
+        background: #fff;
+        height: auto;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 1%;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+
+        > .Line {
+          position: relative;
+          float: left;
+          line-height: 30px;
+          height: 30px;
+          color: #666;
+          width: 100%;
+
+          > span {
+            color: #000;
+          }
+        }
+      }
+
+      > .No-Data {
+        position: absolute;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        top: 50%;
+        left: 50%;
+      }
+    }
+  }
+}
