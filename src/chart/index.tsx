@@ -13,17 +13,28 @@ class Chart extends React.Component<Props, any> {
         super(props);
     }
 
-    list() {
-        return <div className={'List'}>
-            <div className={'No-Data'}>Loading....</div>
+    chart() {
+        const list = [];
+        const marks = this.props.studentData.marks;
+        for (const subject in marks) {
+            const data = marks[subject];
+            list.push(<div className={'Col'}>
+                <div className={'Fill'} style={{height: data + 'px'}}></div>
+                <div className={'Subject'}>{subject}</div>
+            </div>);
+        }
+        return <div className={'Chart'}>
+            {list}
         </div>;
     }
 
     titleBar() {
-        return <div className={'SearchBar'}>
+        return <div className={'Bar'}>
             <div className={'Holder'}>
-                <div placeholder="Search Item" className="Input"/>
-                <div className={'Sort-Button Selected'} onClick={event1 => {
+                <div className="Student-Name">
+                    Student Name : {this.props.studentData.name}
+                </div>
+                <div className={'Back-Button'} onClick={event1 => {
                     this.props.dispatch({
                         type: 'removeStudentData'
                     })
@@ -40,7 +51,7 @@ class Chart extends React.Component<Props, any> {
                 {this.titleBar()}
             </div>
             <div className={'Holder'}>
-                {this.list()}
+                {this.chart()}
             </div>
         </div>;
     }

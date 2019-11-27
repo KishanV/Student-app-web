@@ -79,7 +79,7 @@ class Dashboard extends React.Component<Props, State> {
             }
             if (canRender) {
                 list.push(
-                    <div className={'Card'} onClick={event1 => {
+                    <div key={studentData.name + index} className={'Card'} onClick={event1 => {
                         this.props.dispatch({
                             type: 'setStudentData',
                             data: studentData
