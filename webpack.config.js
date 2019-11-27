@@ -7,7 +7,7 @@ const path = require("path");
 module.exports = {
     devServer: {
         host: "0.0.0.0",
-        port: 16000,
+        port: 5050,
         hot: true,
         contentBase: path.resolve(__dirname, "src"),
         publicPath: "/"
