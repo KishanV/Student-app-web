@@ -16,9 +16,10 @@ class Chart extends React.Component<Props, any> {
     chart() {
         const list = [];
         const marks = this.props.studentData.marks;
+        let count = 0;
         for (const subject in marks) {
             const data = marks[subject];
-            list.push(<div className={'Col'}>
+            list.push(<div key={(++count).toString()} className={'Col'}>
                 <div className={'Fill'} style={{height: data + 'px'}}></div>
                 <div className={'Subject'}>{subject}</div>
             </div>);
