@@ -17,15 +17,18 @@ class Chart extends React.Component<Props, any> {
         const list = [];
         const marks = this.props.studentData.marks;
         let count = 0;
+        let totel = 0;
         for (const subject in marks) {
             const data = marks[subject];
+            totel += data;
             list.push(<div key={(++count).toString()} className={'Col'}>
-                <div className={'Fill'} style={{height: data + 'px'}}></div>
+                <div className={'Fill'} style={{height: data + 'px'}}>{data}</div>
                 <div className={'Subject'}>{subject}</div>
             </div>);
         }
         return <div className={'Chart'}>
             {list}
+            <div className={'Total'}>Total = {totel}</div>
         </div>;
     }
 
@@ -33,7 +36,7 @@ class Chart extends React.Component<Props, any> {
         return <div className={'Bar'}>
             <div className={'Holder'}>
                 <div className="Student-Name">
-                    Student Name : {this.props.studentData.name}
+                    Student: {this.props.studentData.name} ({this.props.studentData.rollNo})
                 </div>
                 <div className={'Back-Button'} onClick={event1 => {
                     this.props.dispatch({
