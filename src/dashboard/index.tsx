@@ -100,29 +100,6 @@ class Dashboard extends React.Component<Props, State> {
     search() {
         return <div className={'SearchBar'}>
             <div className={'Holder'}>
-                <div className={'Dropdown'} onClick={event1 => {
-                    if (this.state.sort === 'A - Z') {
-                        this.setState({
-                            sort: 'Z - A'
-                        })
-                    } else {
-                        this.setState({
-                            sort: 'A - Z'
-                        })
-                    }
-                }}>
-                    {this.state.sort}
-                    <div className={'Icon'}>
-                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <rect y="4.24268" width="1" height="6" transform="rotate(-45 0 4.24268)"
-                                  fill="#333333"/>
-                            <rect x="7.77817" y="3.53552" width="1" height="6"
-                                  transform="rotate(45 7.77817 3.53552)"
-                                  fill="#333333"/>
-                        </svg>
-                    </div>
-                </div>
                 <input placeholder="Search Item" className="Input" value={this.state.search} onChange={event => {
                     const str = event.target.value.trim().toLowerCase();
                     setTimeout(() => {
@@ -131,6 +108,21 @@ class Dashboard extends React.Component<Props, State> {
                         })
                     }, 100);
                 }}/>
+
+                <div className={'Sort-Button' + (this.state.sort === 'A - Z' ? ' Selected' : '')} onClick={event1 => {
+                    this.setState({
+                        sort: 'A - Z'
+                    })
+                }}>
+                    A - Z
+                </div>
+                <div className={'Sort-Button' + (this.state.sort === 'Z - A' ? ' Selected' : '')} onClick={event1 => {
+                    this.setState({
+                        sort: 'Z - A'
+                    })
+                }}>
+                    Z - A
+                </div>
             </div>
         </div>
     }
