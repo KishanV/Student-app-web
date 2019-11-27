@@ -54,7 +54,7 @@
 
         > .Input {
           position: relative;
-          width: 400px;
+          width: 200px;
           height: 40px;
           background: #fff;
           border: 1px solid #ddd;
@@ -85,12 +85,12 @@
       > .Card {
         position: relative;
         float: left;
-        width: 31.33%;
+        width: 96%;
         background: #fff;
         height: auto;
         box-sizing: border-box;
         padding: 10px;
-        margin: 1%;
+        margin: 2%;
         border-radius: 6px;
         border: 1px solid #ddd;
 
@@ -119,3 +119,25 @@
     }
   }
 }
+
+@media (min-width: 576px) {
+  .Card {
+    width: 96% !important;
+    margin: 2% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .Card {
+    width: 46% !important;
+    margin: 2% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .Card {
+    width: 31.33% !important;
+    margin: 1% !important;
+  }
+}
+
