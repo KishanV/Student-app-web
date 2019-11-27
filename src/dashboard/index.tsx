@@ -3,11 +3,11 @@ import './index.scss';
 import {connect} from "react-redux";
 
 interface Props {
-    dispatch: any
+    dispatch: any,
+    allData?: any
 }
 
 interface State {
-    data?: any
     search: string
     sort: string
 }
@@ -32,14 +32,15 @@ class Dashboard extends React.Component<Props, State> {
         let response = await fetch(`https://api.myjson.com/bins/1dlper`);
         if (response.ok) {
             let json: any = await response.json();
-            this.setState({
+            this.props.dispatch({
+                type: 'setAllData',
                 data: json
             })
         }
     }
 
     list() {
-        const data: any[] = this.state.data;
+        const data: any[] = this.props.allData;
         if (data === undefined) {
             return <div className={'List'}>
                 <div className={'No-Data'}>Loading....</div>
@@ -78,7 +79,12 @@ class Dashboard extends React.Component<Props, State> {
             }
             if (canRender) {
                 list.push(
-                    <div className={'Card'}>
+                    <div className={'Card'} onClick={event1 => {
+                        this.props.dispatch({
+                            type: 'setStudentData',
+                            data: studentData
+                        })
+                    }}>
                         <div className={'Line'}>
                             <span className={'Title'}>Name:</span> {studentData.name}
                         </div>
@@ -141,6 +147,7 @@ class Dashboard extends React.Component<Props, State> {
 
 const mapStateToProps = (state: any) => {
     return {
+        allData: state.allData.data,
         dispatch: state.dispatch
     };
 };

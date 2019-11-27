@@ -4,12 +4,14 @@ import {hot} from 'react-hot-loader/root';
 import {connect} from "react-redux";
 import Login from "../login";
 import Dashboard from "../dashboard";
+import Chart from "../chart";
 
 interface State {
 
 }
 
 interface Props {
+    studentData: any
     isLoggedIn: boolean
 }
 
@@ -20,21 +22,26 @@ class App extends React.Component<Props, State> {
         super(props);
     }
 
-    async loadData() {
-
+    getScreen() {
+        if (this.props.studentData) {
+            return <Chart/>
+        }
+        if (this.props.isLoggedIn) {
+            return <Dashboard/>
+        }
+        return <Login/>;
     }
 
     render() {
         return <div className={'App'}>
-            {this.props.isLoggedIn === false && <Login/>}
-            {this.props.isLoggedIn === true && <Dashboard/>}
+            {this.getScreen()}
         </div>;
     }
 }
 
 const mapStateToProps = (state: any) => {
-    console.log('state', state);
     return {
+        studentData: state.studentData.data,
         isLoggedIn: state.isLoggedIn,
         dispatch: state.dispatch
     };
