@@ -51,6 +51,10 @@ class Login extends React.Component<Props, State> {
                     alert('Please enter username.');
                     return
                 }
+                if (this.state.user !== 'Kishan' || this.state.password !== 'Devani') {
+                    alert("Please use username=Kishan and password=Devani");
+                    return
+                }
                 this.props.dispatch({
                     type: 'loggedInSuccess'
                 })

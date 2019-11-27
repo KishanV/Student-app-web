@@ -23,6 +23,10 @@ const reducer = combineReducers({
             loggedIn = true;
             return loggedIn;
         }
+        if (action && action.type === 'logout') {
+            loggedIn = false;
+            return loggedIn;
+        }
         return state;
     },
     studentData: (state = studentData, action: any) => {

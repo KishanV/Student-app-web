@@ -130,6 +130,14 @@ class Dashboard extends React.Component<Props, State> {
                 }}>
                     Z - A
                 </div>
+
+                <div className={'Sort-Button'} onClick={event1 => {
+                    this.props.dispatch({
+                        type: 'logout'
+                    })
+                }}>
+                    Logout
+                </div>
             </div>
         </div>
     }
